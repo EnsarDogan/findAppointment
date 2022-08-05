@@ -1,14 +1,14 @@
 export const desks = [
-  { name: "IND Amsterdam", value: "1: Object" },
-  { name: "IND Den Haag", value: "2: Object" },
-  { name: "IND Zwolle", value: "3: Object" },
-  { name: "IND Den Bosch", value: "4: Object" },
+  { name: "IND Amsterdam", value: "AM" },
+  { name: "IND Den Haag", value: "DH" },
+  { name: "IND Zwolle", value: "ZW" },
+  { name: "IND Den Bosch", value: "BD" },
 ];
 
 export const desksForBiometrics = [
-  { name: "IND Amsterdam", value: "1: Object" },
-  { name: "IND Den Haag", value: "2: Object" },
-  { name: "IND Zwolle", value: "3: Object" },
-  { name: "IND Den Bosch", value: "4: Object" },
-  { name: "IND Haarlem", value: "5: Object" },
+  { name: "IND Amsterdam", value: "AM" },
+  { name: "IND Den Haag", value: "DH" },
+  { name: "IND Zwolle", value: "ZW" },
+  { name: "IND Den Bosch", value: "BD" },
+  { name: "IND Haarlem", value: "6b425ff9f87de136a36b813cccf26e23" },
 ];

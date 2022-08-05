@@ -6,11 +6,32 @@ import DatePicker from "react-datepicker";
 import { composeValidators, isRequired, isValidEmail } from "./validators";
 import "react-datepicker/dist/react-datepicker.css";
 import { desks, desksForBiometrics } from "./deskOptions";
+import axios from "axios";
+import { toast } from "react-toastify";
+
+const postData = (data) => {
+  return axios.post(
+    `https://parseme.azurewebsites.net/api/UpsertAppointment?code=Jd1w_4DvhLAPSr6tmYuRmujfBARZSMhzQblKCbuQSxtdAzFucNcKhQ==&personalCode=testCode`,
+    data
+  );
+};
+
+const postRequest = async (data) => {
+  try {
+    await postData(data);
+    toast.success(
+      "You have been registered successfully. You wil get an email when a space is avaliable. Please create a notification for your mail service"
+    );
+  } catch (err) {
+    toast.error("Something went wrong!");
+  }
+};
 
 const onSubmit = async (values) => {
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   await sleep(300);
-  window.alert(JSON.stringify(values, 0, 2));
+  console.log(JSON.stringify(values, 0, 2));
+  postRequest(values);
 };
 
 const DatePickerAdapter = ({ input: { onChange, value }, ...rest }) => (
@@ -29,7 +50,7 @@ const FormComponent = () => {
                 <Field
                   fullWidth
                   validate={isRequired}
-                  name="need"
+                  name="productKey"
                   component={Select}
                   label="Select What You Need"
                   formControlProps={{ fullWidth: true }}
@@ -42,12 +63,12 @@ const FormComponent = () => {
                 <Field
                   fullWidth
                   validate={isRequired}
-                  name="desk"
+                  name="cityCode"
                   component={Select}
                   label="Select a Desk"
                   formControlProps={{ fullWidth: true }}
                 >
-                  {values.need === "BIO"
+                  {values.productKey === "BIO"
                     ? desksForBiometrics?.map((desk) => {
                         return (
                           <MenuItem value={desk.value}>{desk.name}</MenuItem>
@@ -89,7 +110,7 @@ const FormComponent = () => {
                     <Field
                       fullWidth
                       required
-                      name="maxDay"
+                      name="maxDays"
                       component={TextField}
                       type="number"
                       label="Number"
@@ -102,7 +123,7 @@ const FormComponent = () => {
                 <Field
                   fullWidth
                   required
-                  name="email"
+                  name="notificationEmail"
                   component={TextField}
                   type="email"
                   label="Type Your Email"
