@@ -83,10 +83,10 @@ const FormComponent = () => {
               </Grid>
               <Grid item xs={12}>
                 <Grid container>
-                  <Grid item xs={7}>
+                  <Grid item xs={6}>
                     <label>From Now To Expire Date:</label>
                   </Grid>
-                  <Grid item xs={5}>
+                  <Grid item xs={6}>
                     <Field
                       name="expireDate"
                       validate={isRequired}
@@ -98,12 +98,12 @@ const FormComponent = () => {
               </Grid>
               <Grid item xs={12}>
                 <Grid container>
-                  <Grid item xs={7}>
+                  <Grid item xs={6}>
                     <label>
                       How many days max you wish to get notification by email:
                     </label>
                   </Grid>
-                  <Grid item xs={5}>
+                  <Grid item xs={6}>
                     <Field
                       fullWidth
                       required
