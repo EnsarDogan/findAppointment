@@ -88,12 +88,10 @@ const FormComponent = () => {
                   </Grid>
                   <Grid item xs={4}>
                     <Field
-                      fullWidth
                       name="expireDate"
                       validate={isRequired}
                       dateFormat="yyyy/MM/dd"
                       component={DatePickerAdapter}
-                      formControlProps={{ fullWidth: true }}
                       placeholder="First Name"
                     />
                   </Grid>
