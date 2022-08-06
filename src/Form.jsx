@@ -83,28 +83,27 @@ const FormComponent = () => {
               </Grid>
               <Grid item xs={12}>
                 <Grid container>
-                  <Grid item xs={8}>
+                  <Grid item xs={7}>
                     <label>From Now To Expire Date:</label>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid item xs={5}>
                     <Field
                       name="expireDate"
                       validate={isRequired}
                       dateFormat="yyyy/MM/dd"
                       component={DatePickerAdapter}
-                      placeholder="First Name"
                     />
                   </Grid>
                 </Grid>
               </Grid>
               <Grid item xs={12}>
                 <Grid container>
-                  <Grid item xs={8}>
+                  <Grid item xs={7}>
                     <label>
                       How many days max you wish to get notification by email:
                     </label>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid item xs={5}>
                     <Field
                       fullWidth
                       required
