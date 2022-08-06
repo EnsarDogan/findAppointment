@@ -20,7 +20,7 @@ const postRequest = async (data) => {
   try {
     await postData(data);
     toast.success(
-      "You have been registered successfully. You wil get an email when a space is avaliable. Please create a notification for your mail service"
+      "You have been registered successfully. You will get an email when a space is avaliable. Please create a notification for your mail service"
     );
   } catch (err) {
     toast.error("Something went wrong!");
