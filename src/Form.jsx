@@ -10,17 +10,24 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const postData = (data) => {
-  return axios.post(
-    `https://parseme.azurewebsites.net/api/UpsertAppointment?code=Jd1w_4DvhLAPSr6tmYuRmujfBARZSMhzQblKCbuQSxtdAzFucNcKhQ==&personalCode=testCode`,
-    data
-  );
+  return axios.post(getUrl(), data);
 };
-
+const getUrl = () => {
+  var personalCodeParameter = window.location.search
+    .split("&")
+    .filter((s) => s.includes("personalCode="));
+  if (personalCodeParameter?.length < 1) {
+    toast.error("You need a valid Personal Code! Please contact administrator");
+  }
+  var personalCode = personalCodeParameter[0].split("=")[1];
+  var url = `https://parseme.azurewebsites.net/api/UpsertAppointment?code=Jd1w_4DvhLAPSr6tmYuRmujfBARZSMhzQblKCbuQSxtdAzFucNcKhQ==&personalCode=${personalCode}`;
+  return url;
+};
 const postRequest = async (data) => {
   try {
     await postData(data);
     toast.success(
-      "You have been registered successfully. You will get an email when a space is avaliable. Please create a notification for your mail service"
+      "You have been registered successfully. You wil get an email when a space is avaliable. Please create a notification for your mail service"
     );
   } catch (err) {
     toast.error("Something went wrong!");
@@ -83,27 +90,30 @@ const FormComponent = () => {
               </Grid>
               <Grid item xs={12}>
                 <Grid container>
-                  <Grid item xs={6}>
+                  <Grid item xs={8}>
                     <label>From Now To Expire Date:</label>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={4}>
                     <Field
+                      fullWidth
                       name="expireDate"
                       validate={isRequired}
                       dateFormat="yyyy/MM/dd"
                       component={DatePickerAdapter}
+                      formControlProps={{ fullWidth: true }}
+                      placeholder="First Name"
                     />
                   </Grid>
                 </Grid>
               </Grid>
               <Grid item xs={12}>
                 <Grid container>
-                  <Grid item xs={6}>
+                  <Grid item xs={8}>
                     <label>
                       How many days max you wish to get notification by email:
                     </label>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={4}>
                     <Field
                       fullWidth
                       required
