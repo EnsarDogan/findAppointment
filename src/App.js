@@ -7,7 +7,13 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <div style={{ padding: 16, marginTop: 30, margin: "auto", maxWidth: 600 }}>
+    <div
+      style={{
+        margin: "auto",
+        maxWidth: 600,
+        backgroundColor: "#154273",
+      }}
+    >
       <CssBaseline />
       <ToastContainer
         position="top-center"

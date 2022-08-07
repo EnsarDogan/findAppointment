@@ -13,14 +13,14 @@ const postData = (data) => {
   return axios.post(getUrl(), data);
 };
 const getUrl = () => {
-  var personalCodeParameter = window.location.search
+  const personalCodeParameter = window.location.search
     .split("&")
     .filter((s) => s.includes("personalCode="));
   if (personalCodeParameter?.length < 1) {
     toast.error("You need a valid Personal Code! Please contact administrator");
   }
-  var personalCode = personalCodeParameter[0].split("=")[1];
-  var url = `https://parseme.azurewebsites.net/api/UpsertAppointment?code=Jd1w_4DvhLAPSr6tmYuRmujfBARZSMhzQblKCbuQSxtdAzFucNcKhQ==&personalCode=${personalCode}`;
+  const personalCode = personalCodeParameter[0].split("=")[1];
+  const url = `https://parseme.azurewebsites.net/api/UpsertAppointment?code=Jd1w_4DvhLAPSr6tmYuRmujfBARZSMhzQblKCbuQSxtdAzFucNcKhQ==&personalCode=${personalCode}`;
   return url;
 };
 const postRequest = async (data) => {
@@ -90,10 +90,10 @@ const FormComponent = () => {
               </Grid>
               <Grid item xs={12}>
                 <Grid container>
-                  <Grid item xs={8}>
+                  <Grid item xs={6}>
                     <label>From Now To Expire Date:</label>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid item xs={6}>
                     <Field
                       fullWidth
                       name="expireDate"
@@ -108,12 +108,12 @@ const FormComponent = () => {
               </Grid>
               <Grid item xs={12}>
                 <Grid container>
-                  <Grid item xs={8}>
+                  <Grid item xs={6}>
                     <label>
                       How many days max you wish to get notification by email:
                     </label>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid item xs={6}>
                     <Field
                       fullWidth
                       required

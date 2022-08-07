@@ -1,12 +1,36 @@
-import { Typography } from "@material-ui/core";
+import { Typography, Card, CardMedia, CardContent } from "@material-ui/core";
 
 const HeaderComponent = () => {
   return (
     <>
-      <Typography variant="subtitle" align="center" component="h1" gutterBottom>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          margin: "5px",
+        }}
+      >
+        <img
+          src="https://forrefugees.vluchtelingenwerk.nl/sites/default/files/Vluchtelingenwerk/Project/images/vwn_20190806_logo-ind.png"
+          alt="IND Logo"
+        />
+      </div>
+      <Typography
+        style={{ color: "white" }}
+        gutterBottom
+        variant="h4"
+        component="div"
+        align="center"
+        color="white"
+      >
         Find Me IND Appointment
       </Typography>
-      <Typography variant="h6" align="center" component="h2" gutterBottom>
+      <Typography
+        style={{ color: "white" }}
+        variant="h6"
+        color="text.primary"
+        align="center"
+      >
         Get an email when an Appointment is eligible for you
       </Typography>
     </>

@@ -13,3 +13,4 @@ export function isRequired(value) {
 export function isValidEmail(value) {
   return /\S+@\S+\.\S+/.test(value) ? undefined : "Invalid Email";
 }
+
